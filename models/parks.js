@@ -1,7 +1,7 @@
-const db = require('./conn.js');
+const db = require("./conn.js");
 
 class Parks {
-  constructor(id, name) {
+  constructor(id, name, address, picture) {
     this.id = id;
     this.name = name;
     this.address = address;
@@ -31,6 +31,7 @@ class Parks {
       const response = await db.any(
         `select * from reviews where park_id = ${p_id}`
       );
+      return response;
     } catch (err) {
       return err.message;
     }
